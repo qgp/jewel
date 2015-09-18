@@ -353,8 +353,10 @@ C--local variables
 	else
 	  wt = (exp(ms/temp)+1.)/(exp(E2/temp)+1.)
 	endif
-	if (wt.gt.1.) write(logfid,*)'Error in getscatterer: weight = ',wt
-	if (wt.lt.0.) write(logfid,*)'Error in getscatterer: weight = ',wt
+	if (wt.gt.1.)
+     &  write(logfid,*)'Error in getscatterer: weight = ',wt
+        if (wt.lt.0.)
+     &  write(logfid,*)'Error in getscatterer: weight = ',wt
 	if (pyr(0).gt.wt) goto 10
 	phi = pyr(0)*2.*pi
 	theta = -acos(2.*pyr(0)-1.)+pi
