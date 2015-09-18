@@ -116,7 +116,8 @@ C--finish
 	write(logfid,*)'mean number of splittings:',
      &      NSPLIT/(SUMOFWEIGHTS-WDISC)
 	write(logfid,*)
-	write(logfid,*)'number of extrapolations in splitting integral: ',
+	write(logfid,*)'number of extrapolations '//
+     &  'in splitting integral: ',
      &	noverspliti,' (',(noverspliti*1.d0)/(ntotspliti*1.d0),'%)'
 	write(logfid,*)
      &	'number of extrapolations in splitting partonic PDFs: ',
@@ -1231,8 +1232,8 @@ C--append matching colour partner
 	  ENDIF
  42	 CONTINUE
 C--no matching colour partner found, add artificial end point
-	 write(logfid,*)'Error in MAKESTRINGS_VAC: failed to reconstruct '//
-     &'colour singlet system, will discard event'
+	 write(logfid,*)'Error in MAKESTRINGS_VAC: failed to '//
+     &'reconstruct colour singlet system, will discard event'
 	 discard = .true.
 	 return
  44	CONTINUE
@@ -1254,8 +1255,8 @@ C--find gluon where anti-triplet is not matched
 	GOTO 51
  47	CONTINUE
 C--generate artificial triplet end
-	 write(logfid,*)'Error in MAKESTRINGS_VAC: failed to reconstruct '//
-     &'colour singlet system, will discard event'
+        write(logfid,*)'Error in MAKESTRINGS_VAC: failed to '//
+     &'reconstruct colour singlet system, will discard event'
 	 discard = .true.
 	 return
 C--copy loose gluon to end of event record
@@ -1311,8 +1312,8 @@ C--append matching colour partner
 	  ENDIF
  49	 CONTINUE
 C--no matching colour partner found, add artificial end point
-	 write(logfid,*)'Error in MAKESTRINGS_VAC: failed to reconstruct '//
-     &'colour singlet system, will discard event'
+	 write(logfid,*)'Error in MAKESTRINGS_VAC: failed to '//
+     &'reconstruct colour singlet system, will discard event'
 	 discard = .true.
 	 return
  48	CONTINUE
